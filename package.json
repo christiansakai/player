@@ -3,13 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "build": "node scripts/build.js",
-    "start": "node scripts/start.js",
-    "package": "elm-package",
-    "make": "elm-make",
-    "repl": "elm-repl",
-    "reactor": "elm-reactor",
-    "test": "elm-test"
+    "start": "./node_modules/.bin/nf start",
+    "client:build": "node scripts/build.js",
+    "client:start": "node scripts/start.js",
+    "client:package": "elm-package",
+    "client:make": "elm-make",
+    "client:repl": "elm-repl",
+    "client:reactor": "elm-reactor",
+    "client:test": "elm-test",
+    "server:start": "node api.js"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
@@ -38,6 +40,7 @@
   "dependencies": {
     "ace-css": "^1.1.0",
     "font-awesome": "^4.7.0",
+    "foreman": "^2.0.0",
     "json-server": "^0.9.5"
   }
 }
