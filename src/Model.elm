@@ -1,10 +1,26 @@
 module Model exposing ( Model
-                      , init
+                      , Player
+                      , initialModel
                       )
 
 
-type alias Model = String
+type alias Model =
+  { players : List Player
+  }
 
-init : ( Model, Cmd msg )
-init = 
-  ( "Hello", Cmd.none )
+
+type alias Player =
+  { id : PlayerId
+  , name : String
+  , level : Int
+  }
+
+
+type alias PlayerId =
+  String
+
+
+initialModel : Model
+initialModel = 
+  { players = [ Player "1" "Sam" 1 ]
+  }

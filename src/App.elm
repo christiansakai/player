@@ -9,11 +9,21 @@ import Update as U
 import View as V
 
 
+init : (M.Model, Cmd Msg.Msg)
+init =
+  (M.initialModel, Cmd.none)
+
+
+subscriptions : M.Model -> Sub Msg.Msg
+subscriptions model =
+  Sub.none
+
+
 main : Program Never M.Model Msg.Msg
 main =
     Html.program
         { view = V.view
-        , init = M.init
+        , init = init
         , update = U.update
-        , subscriptions = S.subscriptions
+        , subscriptions = subscriptions
         }
