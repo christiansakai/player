@@ -8,11 +8,17 @@ import Subscriptions as S
 import Update as U
 import View as V
 import Commands as C
+import Navigation as N
+import Routing as R
 
 
-init : (M.Model, Cmd Msg.Msg)
-init =
-  (M.initialModel, C.fetchPlayers)
+init : N.Location -> (M.Model, Cmd Msg.Msg)
+init location =
+  let 
+      currentRoute =
+        R.parseLocation location
+  in
+    (M.initialModel currentRoute, C.fetchPlayers)
 
 
 subscriptions : M.Model -> Sub Msg.Msg
@@ -22,9 +28,9 @@ subscriptions model =
 
 main : Program Never M.Model Msg.Msg
 main =
-    Html.program
-        { view = V.view
-        , init = init
-        , update = U.update
-        , subscriptions = subscriptions
-        }
+  N.program Msg.OnLocationChange
+    { view = V.view
+    , init = init
+    , update = U.update
+    , subscriptions = subscriptions
+    }
