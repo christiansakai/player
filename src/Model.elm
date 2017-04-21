@@ -3,9 +3,11 @@ module Model exposing ( Model
                       , initialModel
                       )
 
+import RemoteData as R
+
 
 type alias Model =
-  { players : List Player
+  { players : R.WebData (List Player)
   }
 
 
@@ -22,5 +24,5 @@ type alias PlayerId =
 
 initialModel : Model
 initialModel = 
-  { players = [ Player "1" "Sam" 1 ]
+  { players = R.Loading
   }

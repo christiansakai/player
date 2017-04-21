@@ -1,6 +1,8 @@
-module Message exposing ( Msg ( NoOp )
+module Message exposing ( Msg ( OnFetchPlayers )
                         )
 
+import RemoteData exposing (WebData)
+import Model as M
 
 type Msg
-  = NoOp
+  = OnFetchPlayers (WebData (List M.Player))

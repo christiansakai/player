@@ -7,11 +7,12 @@ import Message as Msg
 import Subscriptions as S
 import Update as U
 import View as V
+import Commands as C
 
 
 init : (M.Model, Cmd Msg.Msg)
 init =
-  (M.initialModel, Cmd.none)
+  (M.initialModel, C.fetchPlayers)
 
 
 subscriptions : M.Model -> Sub Msg.Msg
